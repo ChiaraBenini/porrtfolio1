@@ -81,3 +81,21 @@ document.addEventListener('DOMContentLoaded', function() {
     // Update copyright year
     document.querySelector('.copyright').innerHTML = `Designed & Built by Shin &copy; ${new Date().getFullYear()}`;
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const toggleButtons = document.querySelectorAll('.toggle-details');
+  
+  toggleButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const card = this.closest('.project-card');
+      const details = card.querySelector('.project-details');
+      
+      details.classList.toggle('expanded');
+      this.classList.toggle('expanded');
+      
+      // Change the button text based on state
+      this.textContent = details.classList.contains('expanded') ? '−' : '+';
+    });
+  });
+});
